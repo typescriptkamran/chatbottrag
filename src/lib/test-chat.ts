@@ -1,6 +1,6 @@
 import { generateResponse } from './rag-utils';
 
-async function testChat() {
+export async function testChat() {
   const testQueries = [
     "What types of vehicles do you offer?",
     "What are your rental rates?",
@@ -22,4 +22,6 @@ async function testChat() {
   }
 }
 
-testChat().catch(console.error); 
+if (require.main === module) {
+  testChat().catch(console.error);
+} 
