@@ -1,0 +1,46 @@
+Car Rental Services Guide
+
+Welcome to our car rental service! We offer a wide range of vehicles to meet your transportation needs.
+
+Available Vehicle Types:
+1. Economy Cars
+   - Perfect for city driving
+   - Excellent fuel efficiency
+   - Seats up to 4 passengers
+   - Starting from $30/day
+
+2. Mid-Size Sedans
+   - Comfortable for families
+   - Good for highway driving
+   - Seats up to 5 passengers
+   - Starting from $45/day
+
+3. SUVs
+   - Spacious and versatile
+   - Great for road trips
+   - Seats up to 7 passengers
+   - Starting from $60/day
+
+Rental Requirements:
+- Valid driver's license
+- Credit card for deposit
+- Minimum age: 21 years
+- Insurance coverage required
+
+Additional Services:
+- GPS navigation system
+- Child safety seats
+- Additional driver
+- Airport pickup/dropoff
+
+Contact Information:
+Phone: (555) 123-4567
+Email: support@rentalcargroup.com
+Address: 123 Car Rental Street, City, State 12345
+
+Operating Hours:
+Monday - Friday: 8:00 AM - 8:00 PM
+Saturday: 9:00 AM - 6:00 PM
+Sunday: 10:00 AM - 4:00 PM
+
+We look forward to serving you! 

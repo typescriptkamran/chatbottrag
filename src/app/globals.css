@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom global styles (optional) */
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* Example of custom component styles */
+.btn-primary {
+  @apply bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600;
+}
