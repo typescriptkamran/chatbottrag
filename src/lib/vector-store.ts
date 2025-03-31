@@ -23,8 +23,7 @@ type Metadata = QAMetadata | CompanyInfoMetadata | DocumentMetadata;
 
 // Initialize Pinecone client
 const pinecone = new Pinecone({
-  apiKey: process.env.PINECONE_API_KEY || '',
-  environment: process.env.PINECONE_ENVIRONMENT || ''
+  apiKey: process.env.PINECONE_API_KEY || ''
 });
 
 // Get the index
