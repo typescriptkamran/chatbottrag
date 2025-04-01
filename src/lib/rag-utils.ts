@@ -1,15 +1,15 @@
-import { carRentalData, companyInfo } from "@/data/car-rental-qa";
+import { carRentalData, companyInfo } from "../data/car-rental-qa";
 import { queryVectorStore, addDocument, initializeVectorStore } from "./vector-store";
 
 export { queryVectorStore, addDocument, initializeVectorStore };
 
 export const RAG_CONFIG = {
-  chunkSize: 500,
-  chunkOverlap: 50,
-  maxTokens: 1000,
+  chunkSize: 1000,
+  chunkOverlap: 200,
+  maxTokens: 500,
   temperature: 0.7,
   topP: 0.9,
-  topK: 50,
+  topK: 3
 };
 
 // Generate a deterministic mock embedding
@@ -60,17 +60,7 @@ export async function generateResponse(
 
     // If we have document matches
     if (relevantContexts.length > 0 && relevantContexts[0].type === 'document') {
-      // Clean up the text response
-      const text = relevantContexts[0].text
-        .replace(/[0-9]{6,}/g, '') // Remove long number sequences
-        .replace(/^\s+|\s+$/g, '') // Trim whitespace
-        .replace(/\s+/g, ' ') // Normalize spaces
-        .replace(/[^\x20-\x7E]/g, '') // Remove non-printable characters
-        .replace(/[^\w\s.,!?-]/g, ''); // Keep only basic punctuation and alphanumeric
-      
-      if (text.length > 0) {
-        return text;
-      }
+      return relevantContexts[0].text;
     }
 
     // If no relevant matches found, provide a more helpful response
@@ -78,15 +68,15 @@ export async function generateResponse(
     
     // Check for specific topics in the query
     if (queryLower.includes("price") || queryLower.includes("cost") || queryLower.includes("rate")) {
-      return "Our rental rates vary depending on the vehicle type and rental duration. Economy cars start from $30/day, mid-size sedans from $45/day, and SUVs from $60/day. For specific pricing, please contact us at 1-800-RENT-CAR.";
+      return "Our rental rates start from $30/day for economy cars, $45/day for mid-size sedans, and $60/day for SUVs. Rates may vary based on season and availability.";
     }
     
     if (queryLower.includes("location") || queryLower.includes("where")) {
-      return "We have multiple locations across the country. Our main office is at 123 Rental Street, Car City, ST 12345. We also offer airport pickup and drop-off services at most major airports.";
+      return "We are located at 123 Car Rental Street, Car City, ST 12345. We also offer airport pickup and drop-off services at most major airports.";
     }
     
     if (queryLower.includes("insurance") || queryLower.includes("coverage")) {
-      return "We offer several insurance options including Collision Damage Waiver (CDW), Personal Accident Insurance (PAI), and Supplemental Liability Insurance (SLI). Our staff can explain the details of each option.";
+      return "We offer comprehensive insurance options including Collision Damage Waiver (CDW), Personal Accident Insurance (PAI), and Supplemental Liability Insurance (SLI). Our staff can explain the details of each option.";
     }
 
     // Default response for unknown queries
